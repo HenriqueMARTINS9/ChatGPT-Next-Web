@@ -1458,7 +1458,7 @@ function _Chat() {
                         })}
                       </div>
                     )}
-                    {typeof message.content === 'string' && message.content.toLowerCase().includes("show calendar") && (
+                    {typeof message.content === 'string' && message.content.toLowerCase().includes("calendar") && (
                             <div className={styles["chat-calendar"]}>
                                 <Calendar fullscreen={false} onPanelChange={(value, mode) => {
                                     console.log(value.format('YYYY-MM-DD'), mode);
@@ -1477,11 +1477,6 @@ function _Chat() {
             </Fragment>
           );
         })}
-      </div>
-      <div className={styles["chat-calendar"]}>
-          <Calendar fullscreen={false} onPanelChange={(value, mode) => {
-              console.log(value.format('YYYY-MM-DD'), mode);
-          }} />
       </div>
       <div className={styles["chat-input-panel"]}>
         <PromptHints prompts={promptHints} onPromptSelect={onPromptSelect} />

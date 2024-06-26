@@ -100,7 +100,7 @@ import { useAllModels } from "../utils/hooks";
 import { MultimodalContent } from "../client/api";
 
 import { DatePicker, Calendar } from 'antd';
-import 'antd/dist/antd.css';
+import 'antd/dist/reset.css';
 
 
 const Markdown = dynamic(async () => (await import("./markdown")).Markdown, {

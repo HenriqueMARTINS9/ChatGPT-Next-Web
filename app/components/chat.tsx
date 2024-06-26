@@ -99,6 +99,10 @@ import { getClientConfig } from "../config/client";
 import { useAllModels } from "../utils/hooks";
 import { MultimodalContent } from "../client/api";
 
+import { DatePicker, Calendar } from 'antd';
+import 'antd/dist/antd.css';
+
+
 const Markdown = dynamic(async () => (await import("./markdown")).Markdown, {
   loading: () => <LoadingIcon />,
 });
@@ -1467,7 +1471,11 @@ function _Chat() {
           );
         })}
       </div>
-
+      <div className={styles["chat-calendar"]}>
+          <Calendar fullscreen={false} onPanelChange={(value, mode) => {
+            console.log(value.format('YYYY-MM-DD'), mode);
+        }} />
+      </div>
       <div className={styles["chat-input-panel"]}>
         <PromptHints prompts={promptHints} onPromptSelect={onPromptSelect} />
 
@@ -1561,7 +1569,9 @@ function _Chat() {
         />
       )}
     </div>
+    
   );
+  
 }
 
 export function Chat() {

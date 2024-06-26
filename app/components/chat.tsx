@@ -1299,6 +1299,7 @@ function _Chat() {
           const showTyping = message.preview || message.streaming;
 
           const shouldShowClearContextDivider = i === clearContextIndex - 1;
+          
 
           return (
             <Fragment key={message.id}>
@@ -1457,8 +1458,14 @@ function _Chat() {
                         })}
                       </div>
                     )}
+                    {typeof message.content === 'string' && message.content.toLowerCase().includes("show calendar") && (
+                            <div className={styles["chat-calendar"]}>
+                                <Calendar fullscreen={false} onPanelChange={(value, mode) => {
+                                    console.log(value.format('YYYY-MM-DD'), mode);
+                                }} />
+                            </div>
+                        )}
                   </div>
-
                   <div className={styles["chat-message-action-date"]}>
                     {isContext
                       ? Locale.Chat.IsContext
@@ -1473,8 +1480,8 @@ function _Chat() {
       </div>
       <div className={styles["chat-calendar"]}>
           <Calendar fullscreen={false} onPanelChange={(value, mode) => {
-            console.log(value.format('YYYY-MM-DD'), mode);
-        }} />
+              console.log(value.format('YYYY-MM-DD'), mode);
+          }} />
       </div>
       <div className={styles["chat-input-panel"]}>
         <PromptHints prompts={promptHints} onPromptSelect={onPromptSelect} />

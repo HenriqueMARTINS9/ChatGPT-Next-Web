@@ -72,8 +72,13 @@ interface IconButtonProps extends ButtonProps {
 
 export const IconButton: React.FC<IconButtonProps> = (props) => {
   return (
-    <Button
-      className={`${styles["icon-button"]} ${props.bordered && styles.border} ${props.shadow && styles.shadow} ${props.className ?? ""}`}
+    <button
+      className={
+        styles["icon-button"] +
+        ` ${props.bordered && styles.border} ${props.shadow && styles.shadow} ${
+          props.className ?? ""
+        } clickable ${styles[props.type ?? ""]}`
+      }
       onClick={props.onClick}
       title={props.title}
       disabled={props.disabled}
@@ -82,14 +87,19 @@ export const IconButton: React.FC<IconButtonProps> = (props) => {
       type={props.type as any} // Cast to any to match Ant Design's type
     >
       {props.icon && (
-        <span className={styles["icon-button-icon"]}>
+        <div
+          className={
+            styles["icon-button-icon"] +
+            ` ${props.type === "primary" && "no-dark"}`
+          }
+        >
           {props.icon}
-        </span>
+        </div>
       )}
       {props.text && (
         <span className={styles["icon-button-text"]}>{props.text}</span>
       )}
-    </Button>
+    </button>
   );
 };
 

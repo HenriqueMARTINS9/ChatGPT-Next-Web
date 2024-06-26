@@ -244,7 +244,7 @@ function DangerItems() {
               appConfig.reset();
             }
           }}
-          type="danger"
+          //type="danger"
         />
       </ListItem>
       <ListItem
@@ -258,7 +258,7 @@ function DangerItems() {
               chatStore.clearAllData();
             }
           }}
-          type="danger"
+          //type="danger"
         />
       </ListItem>
     </List>

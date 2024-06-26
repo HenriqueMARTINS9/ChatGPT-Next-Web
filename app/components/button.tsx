@@ -1,3 +1,4 @@
+/*
 import * as React from "react";
 
 import styles from "./button.module.scss";
@@ -49,3 +50,46 @@ export function IconButton(props: {
     </button>
   );
 }
+  
+*/
+
+import * as React from "react";
+import { Button } from 'antd';
+import { ButtonProps } from 'antd/lib/button';
+
+import styles from "./button.module.scss";
+
+export type ButtonType = "primary" | "link" | "text" | "default" | "dashed";
+
+interface IconButtonProps extends ButtonProps {
+  icon?: JSX.Element;
+  type?: ButtonType;
+  text?: string;
+  bordered?: boolean;
+  shadow?: boolean;
+  className?: string;
+}
+
+export const IconButton: React.FC<IconButtonProps> = (props) => {
+  return (
+    <Button
+      className={`${styles["icon-button"]} ${props.bordered && styles.border} ${props.shadow && styles.shadow} ${props.className ?? ""}`}
+      onClick={props.onClick}
+      title={props.title}
+      disabled={props.disabled}
+      tabIndex={props.tabIndex}
+      autoFocus={props.autoFocus}
+      type={props.type as any} // Cast to any to match Ant Design's type
+    >
+      {props.icon && (
+        <span className={styles["icon-button-icon"]}>
+          {props.icon}
+        </span>
+      )}
+      {props.text && (
+        <span className={styles["icon-button-text"]}>{props.text}</span>
+      )}
+    </Button>
+  );
+};
+

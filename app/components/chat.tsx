@@ -1465,7 +1465,7 @@ function _Chat() {
                           }} />
                         </div>
                     )}
-                    {typeof message.content === 'string' && message.content.toLowerCase().includes("show datepicker") && (
+                    {typeof message.content === 'string' && message.content.toLowerCase().includes("date") && (
                       <div className={styles["chat-datepicker"]}>
                         <DatePicker onChange={(date, dateString) => {
                           console.log(date, dateString);

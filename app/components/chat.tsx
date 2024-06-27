@@ -99,7 +99,7 @@ import { getClientConfig } from "../config/client";
 import { useAllModels } from "../utils/hooks";
 import { MultimodalContent } from "../client/api";
 
-import { DatePicker, Calendar, Cascader, Rate } from 'antd';
+import { DatePicker, Calendar, Cascader, Rate, ColorPicker, ColorPickerProps } from 'antd';
 import 'antd/dist/reset.css';
 
 
@@ -1534,6 +1534,14 @@ function _Chat() {
                     {typeof message.content === 'string' && message.content.toLowerCase().includes("note") && (
                         <div className={styles["chat-note"]}>
                           <Rate defaultValue={3} allowClear={false}/>
+                        </div>
+                    )}
+                    {typeof message.content === 'string' && message.content.toLowerCase().includes("color") && (
+                        <div className={styles["chat-color"]}>
+                          <ColorPicker
+                            format={'hex'}
+                            value={'#1677ff'}
+                          />
                         </div>
                     )}
                   </div>

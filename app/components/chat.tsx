@@ -99,7 +99,7 @@ import { getClientConfig } from "../config/client";
 import { useAllModels } from "../utils/hooks";
 import { MultimodalContent } from "../client/api";
 
-import { DatePicker, Calendar } from 'antd';
+import { DatePicker, Calendar, Cascader } from 'antd';
 import 'antd/dist/reset.css';
 
 
@@ -1491,6 +1491,44 @@ function _Chat() {
                           console.log(date);
                           console.log(dateString);
                         }}/>
+                      </div>
+                    )}
+                    {typeof message.content === 'string' && message.content.toLowerCase().includes("cascader") && (
+                      <div className={styles["chat-cascader"]}>
+                        <Cascader options={[
+                          {
+                            value: 'zhejiang',
+                            label: 'Zhejiang',
+                            children: [
+                              {
+                                value: 'hangzhou',
+                                label: 'Hangzhou',
+                                children: [
+                                  {
+                                    value: 'xihu',
+                                    label: 'West Lake',
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                          {
+                            value: 'jiangsu',
+                            label: 'Jiangsu',
+                            children: [
+                              {
+                                value: 'nanjing',
+                                label: 'Nanjing',
+                                children: [
+                                  {
+                                    value: 'zhonghuamen',
+                                    label: 'Zhong Hua Men',
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                        ]}  placeholder="Please select" />
                       </div>
                     )}
                   </div>

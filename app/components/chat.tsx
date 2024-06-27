@@ -1467,9 +1467,11 @@ function _Chat() {
                     )}
                     {typeof message.content === 'string' && message.content.toLowerCase().includes("date") && (
                       <div className={styles["chat-datepicker"]}>
-                        <DatePicker onChange={(date, dateString) => {
-                          console.log(date, dateString);
-                        }} />
+                        <DatePicker  picker="week"/>
+                        <DatePicker  picker="week" />
+                        <DatePicker  picker="month" />
+                        <DatePicker  picker="quarter" />
+                        <DatePicker  picker="year" />
                       </div>
                     )}
                   </div>

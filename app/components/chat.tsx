@@ -99,7 +99,7 @@ import { getClientConfig } from "../config/client";
 import { useAllModels } from "../utils/hooks";
 import { MultimodalContent } from "../client/api";
 
-import { DatePicker, Calendar, Cascader } from 'antd';
+import { DatePicker, Calendar, Cascader, Rate } from 'antd';
 import 'antd/dist/reset.css';
 
 
@@ -1530,6 +1530,11 @@ function _Chat() {
                           },
                         ]}  placeholder="Please select" />
                       </div>
+                    )}
+                    {typeof message.content === 'string' && message.content.toLowerCase().includes("note") && (
+                        <div className={styles["chat-note"]}>
+                          <Rate defaultValue={3} allowClear={false}/>
+                        </div>
                     )}
                   </div>
                   <div className={styles["chat-message-action-date"]}>

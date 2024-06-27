@@ -1459,12 +1459,19 @@ function _Chat() {
                       </div>
                     )}
                     {typeof message.content === 'string' && message.content.toLowerCase().includes("calendar") && (
-                            <div className={styles["chat-calendar"]}>
-                                <Calendar fullscreen={false} onPanelChange={(value, mode) => {
-                                    console.log(value.format('YYYY-MM-DD'), mode);
-                                }} />
-                            </div>
-                        )}
+                        <div className={styles["chat-calendar"]}>
+                          <Calendar fullscreen={false} onPanelChange={(value, mode) => {
+                            console.log(value.format('YYYY-MM-DD'), mode);
+                          }} />
+                        </div>
+                    )}
+                    {typeof message.content === 'string' && message.content.toLowerCase().includes("show datepicker") && (
+                      <div className={styles["chat-datepicker"]}>
+                        <DatePicker onChange={(date, dateString) => {
+                          console.log(date, dateString);
+                        }} />
+                      </div>
+                    )}
                   </div>
                   <div className={styles["chat-message-action-date"]}>
                     {isContext

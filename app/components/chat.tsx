@@ -1739,8 +1739,8 @@ function _Chat() {
 export function Chat() {
   const chatStore = useChatStore();
   const sessionIndex = chatStore.currentSessionIndex;
-  //return <_Chat key={sessionIndex}></_Chat>;
-  return (
+  return <_Chat key={sessionIndex}></_Chat>;
+  /*return (
     <div className={styles.chat}>
       <iframe
         src="https://udify.app/chatbot/c1JRdYZWuQMVEZtg"
@@ -1749,5 +1749,5 @@ export function Chat() {
         allow="microphone">
       </iframe>
     </div>
-  );
+  );*/
 }
